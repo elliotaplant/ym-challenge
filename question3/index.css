@@ -1,14 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 .container {
-
+  display: grid;
+  grid-template-columns: minmax(450px, 450px) minmax(200px, auto);
+  grid-template-rows: 150px auto;
+  height: 100vh;
 }
 .top-left {
-  height: 150px;
-  width: 450px;
-  background-color: #2200ee;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  background-color: #4444ee;
 }
 .bottom-left {
-
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  background-color: #44ee44;
+  padding: 10px;
+  overflow-y: scroll;
 }
 .right {
-
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  background-color: #ee4444;
 }
