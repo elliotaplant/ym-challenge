@@ -29,7 +29,7 @@ function createFamilyTree(people) {
   const parentChildMap = createParentChildMap(people)
 
   // Finally, starting with the roots, recursively build each family tree
-  return roots.map(root => makeTreeNode(root, parentChildMap));
+  return familyRoots.map(root => makeTreeNode(root, parentChildMap));
 }
 
 // A method to find the family roots of a set of people
@@ -60,11 +60,10 @@ function makeTreeNode(name, parentChildMap) {
   if (parentChildMap[name]) {
     children = parentChildMap[name].map(child => makeTreeNode(child, parentChildMap));
   }
-  return { name, children };
+  return {name, children};
 }
 
-
-function test() {
+function test1() {
   const people = [
     {
       name: 'John',
@@ -96,4 +95,23 @@ function test() {
   console.log(JSON.stringify(createFamilyTree(people), null, 2));
 }
 
-test();
+function test2() {
+  const people = [];
+
+  console.log(JSON.stringify(createFamilyTree(people), null, 2));
+}
+
+function test3() {
+  const people = [
+    {
+      name: 'Peter',
+      parent: 'Alejandro'
+    }
+  ];
+
+  console.log(JSON.stringify(createFamilyTree(people), null, 2));
+}
+
+test1();
+test2();
+test3();
